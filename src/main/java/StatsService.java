@@ -9,11 +9,9 @@ public class StatsService {
     }
 
     public int avgSales(long[] sales) {
-        int sum = 0;
-        for (long sale : sales) {
-            sum += sale;
-        }
-        return (sum / sales.length);
+        StatsService service = new StatsService();
+        int result = service.sumSales(sales);
+        return (result / sales.length);
     }
 
     public int maxSales(long[] sales) {
@@ -43,14 +41,9 @@ public class StatsService {
     }
 
     public int lessSales(long[] sales) {
-        int sum = 0;
+        StatsService service = new StatsService();
+        int avg = service.avgSales(sales);
         int less = 0;
-
-        for (long sale : sales) {
-            sum += sale;
-        }
-
-        int avg = (sum / sales.length);
 
         for (long sale : sales) {
             if (sale < avg) {
@@ -61,14 +54,9 @@ public class StatsService {
     }
 
     public int moreSales(long[] sales) {
-        int sum = 0;
+        StatsService service = new StatsService();
+        int avg = service.avgSales(sales);
         int more = 0;
-
-        for (long sale : sales) {
-            sum += sale;
-        }
-
-        int avg = (sum / sales.length);
 
         for (long sale : sales) {
             if (sale > avg) {
